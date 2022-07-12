@@ -2,7 +2,7 @@
 
 gcloud container clusters get-credentials my-gke-cluster
 
-helm install my-nginx-ingress nginx/nginx-ingress --version 0.13.2 -n nginx-cert-manager
+helm install my-nginx-ingress nginx/nginx-ingress --version 0.13.2 -n nginx-cert-manager -f .\nginx-controller.yaml
 
 helm install my-cert-manager cert-manager/cert-manager --version 1.8.2 -n nginx-cert-manager
 
@@ -27,3 +27,5 @@ kubectl create secret docker-registry gcr-json-key \
  --docker-username=_json_key \
  --docker-password="$(cat ~/json-key-file.json)" \
  --docker-email=cloud-build@week9-356019.iam.gserviceaccount.com -n my-website
+
+helm install my-argo-cd argo/argo-cd --version 4.9.5 -n argocd -f .\argo-cd-values.yaml

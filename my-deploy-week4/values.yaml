@@ -51,14 +51,14 @@ ingress:
     acme.cert-manager.io/http01-edit-in-place: "true"
     }
   hosts:
-    - host: week8challenge.tk
+    - host: week9challenge.tk
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls: 
-    - secretName: week8challenge-tls
+    - secretName: week9challenge-tls
       hosts:
-      - week8challenge.tk
+      - week9challenge.tk
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

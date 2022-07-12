@@ -1,0 +1,5 @@
+controller:
+  metrics:
+    enable: true
+    prometheusRule:
+      enable: true
