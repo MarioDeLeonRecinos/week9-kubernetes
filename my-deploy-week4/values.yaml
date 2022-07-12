@@ -5,12 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: us.gcr.io/week8-355318/week-4
+  repository: us.gcr.io/week9-356019/week-4
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-imagePullSecrets: []
+imagePullSecrets: 
+  - name: gcr-json-key
 nameOverride: ""
 fullnameOverride: ""
 

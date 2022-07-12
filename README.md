@@ -1,4 +1,4 @@
-# week8-kubernetes-helm
+# week9-kubernetes-helm
 
 gcloud container clusters get-credentials my-gke-cluster
 
@@ -20,3 +20,10 @@ kubectl get secrets -n dashboard-skooner
 kubectl -n dashboard-skooner describe secret my-skooner-token-tfxp8
 
 helm install my-deploy-website my-deploy-week4 -n my-website
+
+#Secret create in Linux base console
+kubectl create secret docker-registry gcr-json-key \
+ --docker-server=us.gcr.io \
+ --docker-username=_json_key \
+ --docker-password="$(cat ~/json-key-file.json)" \
+ --docker-email=cloud-build@week9-356019.iam.gserviceaccount.com -n my-website

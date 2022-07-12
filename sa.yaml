@@ -1,0 +1,12 @@
+apiVersion: v1
+imagePullSecrets:
+- name: gcr-json-key
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2022-07-11T22:27:21Z"
+  name: default
+  namespace: my-website
+  resourceVersion: "55657"
+  uid: ba6f7db4-154b-4426-b9d4-7bd5cdb25415
+secrets:
+- name: default-token-bsw9z
