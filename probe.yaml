@@ -16,6 +16,6 @@ spec:
   targets:
     staticConfig:
       static:
-      - https://week8challenge.tk
-      - https://dash.week8challenge.tk
-      - https://monitor.week8challenge.tk
+      - https://week9challenge.tk
+      - https://dash.week9challenge.tk
+      - https://monitor.week9challenge.tk

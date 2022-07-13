@@ -10,9 +10,9 @@ grafana:
         acme.cert-manager.io/http01-edit-in-place: "true",
       }
     labels: {}
-    hosts: [monitor.week8challenge.tk]
+    hosts: [monitor.week9challenge.tk]
     paths: [/]
     tls:
-      - secretName: monitor-week8challenge-tls
+      - secretName: monitor-week9challenge-tls
         hosts:
-          - monitor.week8challenge.tk
+          - monitor.week9challenge.tk
