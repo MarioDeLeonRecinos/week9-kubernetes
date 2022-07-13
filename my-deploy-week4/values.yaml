@@ -54,7 +54,7 @@ ingress:
     - host: week9challenge.tk
       paths:
         - path: /
-          pathType: Prefix
+          pathType: ImplementationSpecific
   tls: 
     - secretName: week9challenge-tls
       hosts:
