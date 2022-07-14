@@ -1,0 +1,7 @@
+controller:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      additionalLabels:
+        release: my-kube-prometheus-stack
+      enabled: true

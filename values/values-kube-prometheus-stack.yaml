@@ -16,3 +16,7 @@ grafana:
       - secretName: monitor-week9challenge-tls
         hosts:
           - monitor.week9challenge.tk
+prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
