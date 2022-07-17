@@ -17,3 +17,4 @@ extraArgs: {
   term_timeout: 30s
 }
 
+# helm upgrade --install mysql-sqlproxy rimusz/gcloud-sqlproxy --namespace wordpress -f .\week9-kubernetes\values\gcloud-sql-proxy.yaml -i

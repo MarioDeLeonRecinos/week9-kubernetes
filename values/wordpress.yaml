@@ -32,17 +32,19 @@ externalDatabase:
   port: 3306
   ## @param externalDatabase.user External Database username
   ##
-  user: "wp-user-deploy"
+  user: "wp-user"
   ## @param externalDatabase.password External Database user password
   ##
-  password: "wp-user-deploy"
+  password: "wp-password"
   ## @param externalDatabase.database External Database database name
   ##
-  database: bitnami_wordpress
-  # existingSecret: example-sync
+  database: "bitnami_wordpress"
+  # existingSecret: "example-sync"
 persistence:
-  enabled: false
+  enabled: true
 service:
   type: ClusterIP
 readinessProbe:
-  enabled: true
+  enabled: false
+# helm  install wordpress -n wordpress wordpress-1/wordpress -f .\week9-kubernetes\values\wordpress.yaml
+# helm  uninstall wordpress -n wordpress wordpress-1/wordpress -f .\week9-kubernetes\values\wordpress.yaml

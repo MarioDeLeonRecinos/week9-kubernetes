@@ -1,0 +1,28 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    autoscaling.alpha.kubernetes.io/conditions: '[{"type":"AbleToScale","status":"True","lastTransitionTime":"2022-07-17T17:27:44Z","reason":"ScaleDownStabilized","message":"recent
+      recommendations were higher than current one, applying the highest recent recommendation"},{"type":"ScalingActive","status":"True","lastTransitionTime":"2022-07-17T17:24:44Z","reason":"ValidMetricFound","message":"the
+      HPA was able to successfully calculate a replica count from cpu resource utilization
+      (percentage of request)"},{"type":"ScalingLimited","status":"False","lastTransitionTime":"2022-07-17T17:25:59Z","reason":"DesiredWithinRange","message":"the
+      desired count is within the acceptable range"}]'
+    autoscaling.alpha.kubernetes.io/current-metrics: '[{"type":"Resource","resource":{"name":"cpu","currentAverageUtilization":0,"currentAverageValue":"1m"}}]'
+  creationTimestamp: "2022-07-17T17:24:12Z"
+  name: php-apache
+  namespace: hpa-example
+  resourceVersion: "2813569"
+  uid: 78e67e33-4528-410b-92c7-5d1d4615b3c7
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  targetCPUUtilizationPercentage: 50
+status:
+  currentCPUUtilizationPercentage: 0
+  currentReplicas: 5
+  desiredReplicas: 5
+  lastScaleTime: "2022-07-17T17:25:59Z"
