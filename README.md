@@ -64,3 +64,7 @@ my-vault-2.my-vault-internal:8201
 kubectl port-forward my-vault-1 8200:8200
 
 kubectl exec my-vault-0 -n vault -- vault operator init -key-shares=1 -key-threshold=1 -format=json > cluster-keys.json
+
+## Recover secret
+
+kubectl get secret example-sync -o jsonpath='{.data.*}' -n wordpress | base64 -d 
