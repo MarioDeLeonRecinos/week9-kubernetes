@@ -1,0 +1,22 @@
+apiVersion: keda.sh/v1alpha1 
+kind: ScaledObject 
+metadata: 
+  name: nginx-scale
+  namespace: nginx-cert-manager
+spec: 
+  scaleTargetRef: 
+    kind: Deployment 
+    name: my-nginx-ingress-ingress-nginx-controller
+  idleReplicaCount: 1
+  minReplicaCount: 2
+  maxReplicaCount: 5 
+  cooldownPeriod: 30 
+  pollingInterval: 1 
+  triggers: 
+  - type: prometheus
+    metadata: 
+      serverAddress: http://my-kube-prometheus-stack-prometheus.kube-grafana.svc.cluster.local:9090
+      metricName: nginx_ingress_controller_nginx_process_connections
+      query: | 
+        sum(avg_over_time(nginx_ingress_controller_nginx_process_connections{namespace="nginx-cert-manager"}[1m]))
+      threshold: "1000" 

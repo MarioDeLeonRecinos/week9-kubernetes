@@ -1,0 +1,48 @@
+ingress:
+  enabled: true
+  annotations: {
+    kubernetes.io/ingress.class: nginx,
+    kubernetes.io/tls-acme: "true",
+    cert-manager.io/cluster-issuer: letsencrypt-prod,
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    }
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hostname: wordpress.week9challenge.tk
+    
+  path: /
+  pathType: ImplementationSpecific
+  extraTls: 
+    - secretName: wordpress-week9challenge-tls
+      hosts:
+      - wordpress.week9challenge.tk
+
+mariadb:
+  ## @param mariadb.enabled Deploy a MariaDB server to satisfy the applications database requirements
+  ## To use an external database set this to false and configure the `externalDatabase.*` parameters
+  ##
+  enabled: false
+
+externalDatabase:
+  ## @param externalDatabase.host External Database server host
+  ##
+  host: "mysql-sqlproxy-gcloud-sqlproxy.wordpress.svc.cluster.local"
+  ## @param externalDatabase.port External Database server port
+  ##
+  port: 3306
+  ## @param externalDatabase.user External Database username
+  ##
+  user: "wp-user-deploy"
+  ## @param externalDatabase.password External Database user password
+  ##
+  password: "wp-user-deploy"
+  ## @param externalDatabase.database External Database database name
+  ##
+  database: bitnami_wordpress
+  # existingSecret: example-sync
+persistence:
+  enabled: false
+service:
+  type: ClusterIP
+readinessProbe:
+  enabled: true
